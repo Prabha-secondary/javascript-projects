@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+  let count=0;
+  const arr1=['Thiv','Prabha','Shelby'];
+  let id=setInterval(dis,1000);
+  function dis(){
+    document.title=`${arr1[count]}`;
+    count++;
+    count=(count)%arr1.length;//very interesting method - looping without loop
+  }
+</script>
+</html>

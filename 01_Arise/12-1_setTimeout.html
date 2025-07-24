@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-but" onclick="finish();">ADD TO CART </button>
+  <div class="js-add"></div>
+</body>
+<script>
+  let ud=null;
+  function finish(){
+    if(ud===null){
+    document.querySelector('.js-add').innerHTML='Added to the cart';
+    ud=setTimeout(add,3000);
+    }
+    else{
+      clearTimeout(ud);
+      document.querySelector('.js-add').innerHTML='Added to the cart';
+      ud=setTimeout(add,3000);
+
+    }
+    
+  }
+function add(){
+      document.querySelector('.js-add').innerHTML='';
+      ud=null;
+    }
+</script>
+</html this is my version and the functionality is same as they have given -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-but" onclick="finish();">ADD TO CART </button>
+  <div class="js-add"></div>
+  
+</body>
+<script> 
+  let id;
+  function finish(){
+  clearTimeout(id);  
+  document.querySelector('.js-add').innerHTML='Added to the cart';
+  id=setTimeout(function(){
+    document.querySelector('.js-add').innerHTML='';
+  },3000);
+  console.log(id);
+  }
+</script>
+</html>

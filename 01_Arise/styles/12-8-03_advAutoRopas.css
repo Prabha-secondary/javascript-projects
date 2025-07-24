@@ -1,0 +1,154 @@
+/*Ready for the production - some more adjustments, ready to go live */
+body{
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-heading{
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.cs-centerimg{
+  display: flex;
+  justify-content: center;
+  gap:50px;
+}
+
+.hand-sign{
+  height: 60px;
+}
+
+.button-style{
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: aliceblue;
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
+  cursor: pointer;
+}
+
+.button-style:hover{
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: aliceblue;
+  height: 130px;
+  width: 130px;
+  border-radius: 65px;
+  cursor: pointer;
+}
+
+.button-style:hover{
+  background-color: green;
+}
+
+.outcome{
+  font-size: 20px;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.display{
+  font-size: 20px;
+  padding-left: 50px;
+  text-align: center;
+}
+
+.score{
+  font-size: 20px;
+  text-align: center;
+}
+
+.cs-buttongrid{
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding-top:20px;
+}
+
+.cs-restart,.cs-autoplay{
+  border-radius: 5px;
+  background-color: rgb(248, 248, 38);
+  padding: 10px 30px;
+  cursor: pointer;
+  border: none;  
+  width: 130px;
+}
+
+.cs-restart:hover {
+  background-color: rgb(9, 215, 9);
+}
+
+.cs-autoplay:hover{
+  background-color: rgb(241, 17, 17);
+}
+
+/* From here the code of lines below are taken from copilot 
+   as in this point of time we give imporatnce to javascript */
+   
+.cs-confirmation {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  width: fit-content;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px); /* ✅ This adds the blur effect */
+  -webkit-backdrop-filter: blur(6px); /* For Safari support */
+  z-index: 1000;
+  display: none;
+}
+
+/* Show only when content is injected */
+.cs-confirmation:not(:empty) {
+  display: block;
+}
+
+/* Style for confirmation prompt text */
+.cs-con {
+  font-size: 22px;
+  font-weight: bold;
+  font-style: italic;
+  color: #ffff99;
+  margin-bottom: 15px;
+}
+
+/* Button container layout */
+.cs-conbut {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* YES and NO buttons */
+.cs-yes, .cs-no {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  background-color: #ffd700;
+  border-radius: 8px;
+  padding: 12px 32px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  min-width: 100px; 
+}
+
+/* Hover animations */
+.cs-yes:hover {
+  background-color: #ff4d4d;
+  transform: scale(1.08);
+}
+
+.cs-no:hover {
+  background-color: #33cc33;
+  transform: scale(1.08);
+}

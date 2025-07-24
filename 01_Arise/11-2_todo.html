@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>TODO List</p>
+  <input class="inputTask" placeholder="Enter the task" onkeypress="check();">
+  <button class="adding" onclick="addToList();">ADD</button>
+  <div class="todoList"></div>
+  
+</body>
+<script src="11-2_todo.js"></script>
+<script> 
+function check(){
+  if(event.key==='Enter'){
+    addToList();
+  }
+}
+</script>
+</html>

@@ -1,0 +1,33 @@
+.display-css,.input-css{
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center; /*by default-> align-items: stretch; -we are making the center of items of particular grid  */
+}
+
+.input-css{
+  margin-bottom:10px;
+  align-items: stretch; /*to the particular grid to make the item stretch-> align-items: stretch; */
+}
+
+.task-css,.date-css{
+ font-size: 15px;
+ padding: 8px;
+}
+
+.addbut-css{
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.del-css{
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}

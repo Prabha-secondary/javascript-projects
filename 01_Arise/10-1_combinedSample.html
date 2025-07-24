@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cs-subscribe{
+      border: none;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+      padding-left :20px;
+      padding-right :20px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cs-subscribed{
+      background-color: rgb(69, 247, 69);
+      color: black;
+    }
+
+    .cs-values{
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 20px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+
+    .calc{
+      background-color: rgb(158, 248, 158);
+      color: black;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <p>To Subscribe our Channel</p>
+  <button class="subscribed cs-subscribe" onclick="subscribe();">Subscribe</button>
+  <p>Amazon Shipping Calculator</p>
+  <p>Order Below $40 = + $10 shipping</p>
+  <p>Order Above $40 = FREE shipping</p>
+  <input placeholder="Cost of the order" class="values cs-values" 
+         onkeydown="keydown();"
+  >
+  <button class="calc" onclick="calc();">Calculate</button> 
+  <p class="result"></p>
+  <script>
+    function subscribe(){
+      const buttonEl=document.querySelector('.subscribed');
+      if(buttonEl.innerText==='Subscribe'){
+        buttonEl.innerText='Subscribed!!!';
+        buttonEl.classList.add('cs-subscribed');
+      }
+      else{
+        buttonEl.innerText='Subscribe';
+        buttonEl.classList.remove('cs-subscribed');
+      }
+    }
+
+    function keydown(){
+      if(event.key==='Enter')
+                      calc();
+    }
+
+    function calc(){
+      let inputValue =document.querySelector('.values').value;
+      if(inputValue<40){
+        console.log(typeof inputValue);//here it is string
+        inputValue=+inputValue+10;//Here the type of input value is string so to 
+                                  //convert you can use like i used in code 
+                                  //or you can use Number()
+        console.log(typeof inputValue);//here it is number
+        document.querySelector('.result').innerText=`${inputValue}`;
+      }
+      else
+      document.querySelector('.result').innerText=`FREE DELIVERY - ${inputValue}`;
+    }
+  </script>
+</body>
+</html 
+
+

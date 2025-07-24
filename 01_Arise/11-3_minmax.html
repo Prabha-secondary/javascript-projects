@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+function minMax(arr){
+
+  let min = null;// it can be of value arr[0] //-200 
+  let max = null;// it can be of value arr[0] //200
+  if(arr.length>1){
+ 
+    for(let i =0;i<arr.length;i++){
+      if(arr[i]<min){
+        min=arr[i];
+      }
+      if(arr[i]>max){
+        max=arr[i];
+      }
+   
+    }
+
+  }
+  else if(arr.length===1){
+    min=arr[0];
+    max=arr[0];
+  }
+  console.log(min);
+  console.log(max);
+
+}
+
+minMax([-12,-1,0,1,12]);
+minMax([]);
+minMax([1]);
+
+</script>
+</html>

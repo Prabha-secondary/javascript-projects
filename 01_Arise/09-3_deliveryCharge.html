@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Amazon Shipping Calculator</p>
+  <p>Order Below $40 = + $10 shipping</p>
+  <p>Order Above $40 = FREE shipping</p>
+  <input placeholder="Cost of the order" class="values" 
+         onkeydown="keydown();"
+  >
+  <button onclick="calc();">Calculate</button> 
+  <p class="result"></p>
+  <script>
+    function keydown(){
+      if(event.key==='Enter')
+                      calc();
+    }
+
+    function calc(){
+      let inputValue =document.querySelector('.values').value;
+      if(inputValue<40){
+        console.log(typeof inputValue);//here it is string
+        inputValue=+inputValue+10;//Here the type of input value is string so to 
+                                  //convert you can use like i used in code 
+                                  //or you can use Number()
+        console.log(typeof inputValue);//here it is number
+        document.querySelector('.result').innerText=`${inputValue}`;
+      }
+      else
+      document.querySelector('.result').innerText=`FREE DELIVERY - ${inputValue}`;
+    }
+  </script> 
+</body>
+</html>

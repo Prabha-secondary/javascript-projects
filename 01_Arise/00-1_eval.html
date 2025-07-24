@@ -1,0 +1,24 @@
+<script>
+// Example 1: Evaluating a mathematical expression
+const expression = "5 + 10 * 2";
+const result = eval(expression);
+console.log(`The result of the expression "${expression}" is: ${result}`);
+// Output: The result of the expression "5 + 10 * 2" is: 25
+
+// Example 2: Executing JavaScript code from a string
+const code = "let a = 10; let b = 20; a + b;";
+const sum = eval(code);
+console.log(`The sum of a and b is: ${sum}`);
+// Output: The sum of a and b is: 30
+
+// Example 3: Dynamic function execution
+const functionCode = `
+  function greet(name) {
+    return "Hello, " + name + "!";
+  }
+  greet("Alice");
+`;
+const greeting = eval(functionCode);
+console.log(greeting);
+// Output: Hello, Alice!
+</script>

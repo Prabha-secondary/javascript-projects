@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APP</title>
+</head>
+<body>
+  <button onclick="msg++;running();">ADD</button>
+  <button onclick="if(msg>0){
+                              msg--;
+                              if(msg===0)
+                              {
+                                stopping();
+                              }
+  }">REMOVE</button>
+  
+</body>
+<script>
+  let msg=2;
+  let isRunning;
+  let id;
+  running();
+  function running(){
+
+    if(isRunning){
+      return;
+    }
+    
+    isRunning=true;
+
+    id=setInterval(function(){
+      if(document.title==='APP')
+        document.title=`(${msg}) new messages`;
+      else
+        document.title='APP';
+    },1000)
+    
+  }
+
+  function stopping(){
+    isRunning=false;
+    clearInterval(id);
+    document.title='APP';
+    
+  }
+</script>
+</html>

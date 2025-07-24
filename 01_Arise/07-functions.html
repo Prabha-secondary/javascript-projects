@@ -1,0 +1,71 @@
+<!-- Learning functions and default parameter value -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>RoPaS</p>
+  <button onclick="{const compMove=randomNum();
+                    results(compMove,'Rock');
+                   
+  }">
+    Rock
+  </button>
+
+  <button onclick="{const compMove=randomNum();
+                   results(compMove,'Paper');
+  }">
+    Paper
+  </button>
+
+  <button onclick="{const compMove=randomNum();
+                    results(compMove,'Scissors');
+  }">
+    Scissors
+  </button>
+  
+<script>
+  
+  let result='';
+
+  function randomNum(){
+                   let compMove='';
+                   const ranNum=Math.random();
+                   if(ranNum>=0 && ranNum<1/3)
+                       compMove='Rock';
+                   else if(ranNum>=1/3 && ranNum<2/3)
+                       compMove='Paper';
+                   else 
+                       compMove='Scissors';
+                   return compMove;
+  }
+
+  function results(compMove,yourMove){ 
+    //Initially when i used 'result' instead of 'results' as 
+    //function name it was showing error
+    //Uncaught SyntaxError: Identifier 'result' has already been declared 
+    //(at 07-functions.html:47:3)Understand this error
+    //07-functions.html:15 Uncaught ReferenceError: randomNum is not defined
+    //at HTMLButtonElement.onclick (07-functions.html:15:22)
+
+    let result='';
+    if(compMove===yourMove)
+      result='Tie';
+    else if((compMove==='Rock' && yourMove==='Scissors') || 
+            (compMove==='Scissors' && yourMove==='Paper')||
+            (compMove==='Paper' && yourMove==='Rock'))
+      result='Lose';
+    else 
+      result='Won';  
+
+      alert(`You chose ${yourMove}. Computer chose ${compMove} ... -> Result is ${result}`);  
+  }
+
+</script>  
+  
+</body>
+</html>

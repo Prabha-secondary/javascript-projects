@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Cart Quantity</p>
+    <button onclick="console.log(`Cart Quantity :${quantity}`)"> 
+      <!--This quantity value is taken from the 
+        script we have written-->
+      Show quantity
+    </button>
+    <button onclick="quantity++; console.log(`Cart Quantity :${quantity}`)">
+      Add to Cart
+    </button>
+    <button onclick="quantity+=2;console.log(`Cart Quantity : ${quantity}`)">
+      +2
+    </button>
+    <button onclick="quantity=quantity+3;console.log(`Cart Quantity : ${quantity}`)">
+      +3
+    </button>
+    <button onclick="quantity=quantity-1; console.log(`Cart Quantity : ${quantity}`)">
+      Decrease
+    </button>
+    <button onclick="quantity=0; console.log(`Cart Quantity : ${quantity}`)">
+      Reset
+    </button>
+</body>
+<script>
+  let quantity=0; 
+  //First it execute the code within the script tag and then goes to the onclick functions , 
+  //so that why we declare the variable here 
+</script>
+</html>

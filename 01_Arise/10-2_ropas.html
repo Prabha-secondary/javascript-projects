@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="10-2_ropas.css">
+
+</head>
+<body>
+  <p class="top-heading">RoPaS</p>
+  <button onclick="{const compMove=randomNum();
+                    results(compMove,'Rock');
+                   
+  }" class="button-style">
+    <img src ="sample_images/rock-emoji.png" class="hand-sign">
+  </button>
+
+  <button onclick="{const compMove=randomNum();
+                   results(compMove,'Paper');
+  }" class="button-style">
+    <img src="sample_images/paper-emoji.png" class="hand-sign">
+  </button>
+
+  <button onclick="{const compMove=randomNum();
+                    results(compMove,'Scissors');
+  }" class="button-style">
+    <img src="sample_images/scissors-emoji.png" class="hand-sign">
+  </button>
+
+  <p class="outcome"></p>
+  <p class="display"></p>
+  <p class="score"></p>
+
+  <button onclick="{score.loss=0;
+                    score.ties=0;
+                    score.wins=0;
+                    document.querySelector('.score').innerText='Game Restart!!!\n\nWins:0 --- Loss:0 --- Ties:0';
+                    localStorage.removeItem('score');
+                    restarting();
+  }" class="cs-restart">Restart</button>
+
+  
+  
+<script src="10-2_ropas.js"> 
+</script>  
+  
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function count(arr){
+    //This below code is wriiten by me and its time complexity is O(n**2)
+    let arr1=[];
+   for(let i=0;i<arr.length;i++){
+    let counts=1;
+    if(arr1.includes(arr[i])){
+      continue;
+    }
+    for(let j=i+1;j<arr.length;j++){
+      if((arr[i]===arr[j])){
+        counts++;
+      }
+    }
+    arr1.push(arr[i]);
+    console.log('The number of times '+arr[i]+' = '+counts);
+   }
+   
+  // //This below code is taken form the github which tutorial gave
+  // const result = {};
+
+  // for (let i = 0; i < arr.length; i++) {        
+  //   if (!result[arr[i]]) {
+  //     result[arr[i]] = 1;
+  //   } else {
+  //     result[arr[i]]++;
+  //   }
+  // }
+
+  // return result;
+  
+  }
+
+  count(['apple', 'grape', 'apple', 'apple']);
+  // console.log(count(['apple', 'grape', 'apple', 'apple']));
+</script>
+</html>

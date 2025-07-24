@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>To Subscribe</p>
+  <button class="subscribed" onclick="
+                              const buttonEl=document.querySelector('.subscribed');
+                              if(buttonEl.innerHTML==='Subscribe'){
+                                buttonEl.innerHTML='Subscribed';
+                              }
+                              else{
+                              buttonEl.innerHTML='Subscribe';}">Subscribe</button>
+                              <!-- Instead of the above line of code if you code like
+                               
+                              buttonEl.innerHTML='Subscribe';}">
+                               Subscribe
+                              </button> 
+                              
+                              what happens is the space is counted and maybe sometime it 
+                              may not work , so instead you can code like this
+                              
+                              buttonEl.innerText='Subscribe';}">
+                               Subscribe
+                              </button> 
+
+                              
+</body>
+</html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>To Subscribe</p>
+  <button class="subscribed" onclick="subscribe();">Subscribe</button>
+  <script>
+    function subscribe(){
+      const buttonEl=document.querySelector('.subscribed');
+      if(buttonEl.innerText==='Subscribe')
+        buttonEl.innerText='Subscribed!!!';
+      else
+        buttonEl.innerText='Subscribe';
+    }
+  </script>
+</body>
+</html 
+
+

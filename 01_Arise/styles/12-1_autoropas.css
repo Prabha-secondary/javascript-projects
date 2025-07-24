@@ -1,0 +1,79 @@
+body{
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-heading{
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+.hand-sign{
+  height: 60px;
+}
+
+.button-style{
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: aliceblue;
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+  cursor: pointer;
+  margin-left: 30px;
+  
+}
+
+.button-style:hover{
+  background-color: green;
+}
+
+.outcome{
+  font-size: 40px;
+  font-style: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.display{
+  font-size: 20px;
+}
+
+.cs-restart{
+  border-radius: 5px;
+  background-color: yellow;
+  padding: 10px 30px;
+  position: absolute;
+  left:2.5%;
+  cursor: pointer;
+  border: none;  
+  width: 130px;
+}
+
+.cs-autoplay{
+  border-radius: 5px;
+  background-color: yellow;
+  padding: 10px 30px;
+  position: absolute;
+  left:14.5%;
+  cursor: pointer;
+  border: none; 
+  width: 135px;
+}
+
+.cs-stopauto{
+  border-radius: 5px;
+  background-color: yellow;
+  padding: 10px 30px;
+  position: absolute;
+  left:27%;
+  cursor: pointer;
+  border: none; 
+  width: 130px;
+}
+
+.cs-restart:hover , .cs-autoplay:hover , .cs-stopauto:hover{
+  background-color: red;
+}
