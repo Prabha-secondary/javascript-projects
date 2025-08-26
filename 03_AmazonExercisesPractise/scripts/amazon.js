@@ -25,7 +25,7 @@ products.forEach((product)=>{
                   </div>
 
                   <div class="product-quantity-container">
-                    <select>
+                    <select class="js-quantity-selector-${product.id}">
                       <option selected value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -56,19 +56,23 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
   button.addEventListener('click',()=>{
-    const productId = button.dataset.productId; 
+    const prodId = button.dataset.productId; 
+    const selectQuantity =Number(document.querySelector(`.js-quantity-selector-${prodId}`).value);
+    //this productId is not like what we are getting from dataset after adding data attribute
+    //this comes from above line as in while creating html we add access from products using 
+    //forEach loop but here we are accessing through the dataset
     let matched;
     cart.forEach((item)=>{
-      if(item.productId===productId)
+      if(item.productId===prodId)
         matched=item;
     }); 
     if(matched){
-      matched.quantity+=1;
+      matched.quantity+=selectQuantity;
     }  
     else{
       cart.push({
-      productId : productId,
-      quantity : 1
+      productId : prodId,
+      quantity : selectQuantity
       });
     }
 
