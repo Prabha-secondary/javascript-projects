@@ -41,7 +41,7 @@ products.forEach((product)=>{
 
                   <div class="product-spacer"></div>
 
-                  <div class="added-to-cart">
+                  <div class="added-to-cart js-added-to-cart-${product.id}">
                     <img src="images/icons/checkmark.png">
                     Added
                   </div>
@@ -54,9 +54,12 @@ products.forEach((product)=>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+let timerID={};//interesting thing to look into as it works good in setTimeout
+
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+  // let timerID; //this is for closure
   button.addEventListener('click',()=>{
-    const {productId} = button.dataset; 
+    const {productId} = button.dataset;
     const quantity =Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
     //this productId is not like what we are getting from dataset after adding data attribute
     //this comes from above line as in while creating html we add access from products using 
@@ -76,6 +79,18 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
       });
     }
 
+    const addedmsg =document.querySelector(`.js-added-to-cart-${productId}`);
+    addedmsg.classList.add('added-to-cart-visible');
+
+    if(timerID[productId]){
+      console.log(timerID[productId]);
+      clearTimeout(timerID[productId]);
+    }
+    
+    timerID[productId]=setTimeout(()=>{
+      addedmsg.classList.remove('added-to-cart-visible');
+    },2000);
+
     let totalCartQuantity=0;
     cart.forEach((item)=>{
       totalCartQuantity+=item.quantity;
@@ -85,3 +100,21 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 });
 
 
+// document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+//   let timerID;
+
+//   button.addEventListener('click', () => {
+//     if (timerID) {
+//       clearTimeout(timerID);
+//     }
+
+//     timerID = setTimeout(() => {
+//       // hide message
+//     }, 2000);
+//   });
+// });
+// please go through the above lines of code because this is a beautiful feature of javascript
+// called closure here you can see it is creating a timerID for every button as it is in for loop
+// but the speciality is it does not forget its timerID , to clearly explain even if another button is
+// clicked the inner click eventListener does remember the timerID of previous button and finishes the 
+// setTimeout function eventhough the previous function is finished.
