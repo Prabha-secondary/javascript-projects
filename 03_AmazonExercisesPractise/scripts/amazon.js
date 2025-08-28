@@ -1,5 +1,5 @@
-import { cart } from "../data/cart.js";
-import { products } from "../data/products.js";
+import {cart, addToCart} from "../data/cart.js";
+import {products} from "../data/products.js";
 
 let productsHTML ='';
 
@@ -59,30 +59,8 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 let timerID={};//interesting thing to look into as it works good in setTimeout
 
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-  // let timerID; //this is for closure
-  button.addEventListener('click',()=>{
-    const {productId} = button.dataset;
-    const quantity =Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
-    //this productId is not like what we are getting from dataset after adding data attribute
-    //this comes from above line as in while creating html we add access from products using 
-    //forEach loop but here we are accessing through the dataset
-    let matched;
-    cart.forEach((item)=>{
-      if(item.productId===productId)
-        matched=item;
-    }); 
-    if(matched){
-      matched.quantity+=quantity;
-    }  
-    else{
-      cart.push({
-      productId,
-      quantity
-      });
-    }
-
-    const addedmsg =document.querySelector(`.js-added-to-cart-${productId}`);
+function displayAddedMsg(productId){
+  const addedmsg =document.querySelector(`.js-added-to-cart-${productId}`);
     addedmsg.classList.add('added-to-cart-visible');
 
     if(timerID[productId]){
@@ -93,12 +71,28 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     timerID[productId]=setTimeout(()=>{
       addedmsg.classList.remove('added-to-cart-visible');
     },2000);
+}
 
-    let totalCartQuantity=0;
-    cart.forEach((item)=>{
-      totalCartQuantity+=item.quantity;
+function updateCart(){
+   let totalCartQuantity=0;
+    cart.forEach((cartItem)=>{
+      totalCartQuantity+=cartItem.quantity;
     });
     document.querySelector('.js-cart-quantity').innerText=totalCartQuantity;  
+}
+
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+  // let timerID; //this is for closure
+  button.addEventListener('click',()=>{
+    const {productId} = button.dataset;
+    const quantity =Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
+    //this productId is not like what we are getting from dataset after adding data attribute
+    //this comes from above line as in while creating html we add access from products using 
+    //forEach loop but here we are accessing through the dataset
+
+    addToCart(productId,quantity);
+    displayAddedMsg(productId);
+    updateCart();
   });
 });
 
