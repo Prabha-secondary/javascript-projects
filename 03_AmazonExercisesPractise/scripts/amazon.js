@@ -73,7 +73,7 @@ function displayAddedMsg(productId){
     },2000);
 }
 
-function updateCart(){
+function updateCartQuantity(){
    let totalCartQuantity=0;
     cart.forEach((cartItem)=>{
       totalCartQuantity+=cartItem.quantity;
@@ -92,7 +92,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addToCart(productId,quantity);
     displayAddedMsg(productId);
-    updateCart();
+    updateCartQuantity();
   });
 });
 
