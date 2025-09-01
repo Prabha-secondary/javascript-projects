@@ -209,3 +209,28 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+
+.cs-quantity-input{
+  display: none;
+  width: 30px;
+}
+
+.cs-save-quantity-link{
+  display: none;
+}
+
+.is-editing-quantity .cs-quantity-input{
+  display: initial;
+}
+
+.is-editing-quantity .cs-save-quantity-link{
+  display: initial;
+}
+
+.is-editing-quantity .cs-quantity-label{
+  display: none;
+}
+
+.is-editing-quantity .cs-update-quantity-link{
+  display: none;
+}

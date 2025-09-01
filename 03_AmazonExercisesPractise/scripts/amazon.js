@@ -1,4 +1,4 @@
-import {cart, addToCart} from "../data/cart.js";
+import {cart, addToCart, calculateCartQuantity} from "../data/cart.js";
 import {products} from "../data/products.js";
 import {formatCurrency} from "./utils/money.js";
 
@@ -58,6 +58,8 @@ products.forEach((product)=>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+updateCartQuantity(); //this is to update the cart quantity as soon as the page loads
+
 let timerID={};//interesting thing to look into as it works good in setTimeout
 
 function displayAddedMsg(productId){
@@ -75,11 +77,8 @@ function displayAddedMsg(productId){
 }
 
 function updateCartQuantity(){
-   let totalCartQuantity=0;
-    cart.forEach((cartItem)=>{
-      totalCartQuantity+=cartItem.quantity;
-    });
-    document.querySelector('.js-cart-quantity').innerText=totalCartQuantity;  
+  const totalCartQuantity=calculateCartQuantity(); 
+  document.querySelector('.js-cart-quantity').innerHTML=totalCartQuantity;  
 }
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
