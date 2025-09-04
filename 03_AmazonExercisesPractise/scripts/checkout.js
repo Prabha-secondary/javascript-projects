@@ -1,4 +1,6 @@
-import {calculateCartQuantity, cart, deleteFromCart, updateQuantity} from "../data/cart.js";
+import {calculateCartQuantity, 
+        cart, deleteFromCart, 
+        updateQuantity,updateDeliveryOption} from "../data/cart.js";
 import {deliveryOptions} from "../data/deliveryOptions.js";
 import {products} from "../data/products.js";
 import {formatCurrency} from "./utils/money.js";
@@ -8,7 +10,7 @@ import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 // const deliveryDate=today.add(7,'days');//EL' function
 // console.log(deliveryDate.format('dddd, MMMM D'));
 
-
+function renderOrderSummary(){
 let cartTotalHTML='';
 
 cart.forEach((cartItem)=>{
@@ -88,7 +90,9 @@ function deliveryOptionsHTML(matchedProduct,cartItem){
                       `&#8377 ${formatCurrency(deliveryOption.deliveryPrice)} -`;
     deliveryHTML+=
                   `
-                    <div class="delivery-option">
+                    <div class="delivery-option js-delivery-option" 
+                    data-product-id=${matchedProduct.id}
+                    data-delivery-option-id=${deliveryOption.id}>
                       <input type="radio" ${isChecked}
                         class="delivery-option-input"
                         name="delivery-option-${matchedProduct.id}">
@@ -158,3 +162,15 @@ function updateCartQuantity(){
 }
 
 updateCartQuantity();
+
+document.querySelectorAll('.js-delivery-option').forEach((element)=>{
+  const {productId,deliveryOptionId}=element.dataset;
+  element.addEventListener('click',()=>{
+    updateDeliveryOption(productId,deliveryOptionId);
+    renderOrderSummary();
+  });
+});
+
+}
+
+renderOrderSummary();
