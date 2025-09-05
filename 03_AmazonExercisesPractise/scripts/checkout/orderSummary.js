@@ -6,6 +6,7 @@ import {products,getProduct} from "../../data/products.js";
 import {formatCurrency} from "../utils/money.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import {renderpaymentSummary} from "./paymentSummary.js";
+import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderOrderSummary(){
 let cartTotalHTML='';
@@ -111,9 +112,8 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
   link.addEventListener('click',()=>{
     const {productId} = link.dataset;
     deleteFromCart(productId);
-    const container=document.querySelector(`.js-cart-item-container-${productId}`);
-    container.remove();
-    updateCartQuantity();
+    renderCheckoutHeader();
+    renderOrderSummary();
     renderpaymentSummary();
   });
 });
@@ -129,7 +129,8 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link)=>{
     container.classList.remove('is-editing-quantity');
     updateQuantity(productId,newQuantity);
     document.querySelector(`.js-quantity-label-${productId}`).innerHTML=newQuantity;
-    updateCartQuantity();
+    renderCheckoutHeader();
+    renderpaymentSummary();
   });
     
   //this below is written for the 'ENTER' keydown event -i understood but little confusing
@@ -143,13 +144,7 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link)=>{
 
 });
 
-
-function updateCartQuantity(){
-  const totalCartQuantity=calculateCartQuantity();
-  document.querySelector('.js-return-to-home-link').innerHTML = `${totalCartQuantity} items`;
-}
-
-updateCartQuantity();
+renderCheckoutHeader();
 
 document.querySelectorAll('.js-delivery-option').forEach((element)=>{
   const {productId,deliveryOptionId}=element.dataset;
